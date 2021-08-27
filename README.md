@@ -13,7 +13,7 @@
 
 A Mendix 8 project as created and the core was edited to remove some design code and very specific selectors that make it near imposable to override styling without using `!important` , the feeling was that the core must put down a basic structure but not provide design specific code. We also removed some bad practice code as such as `outline:none`
 
-View [this](https://github.com/mendixlabs/clean-core-experiment-app-services/blob/main/Mendix8/sass/main.scss) to see new import order
+View [this](https://github.com/mendixlabs/clean-core-experiment-app-services/blob/main/Mendix8/Clean/sass/main.scss) to see new import order
 
 ### New Bootstrap Imports
 
