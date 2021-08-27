@@ -1,4 +1,4 @@
-# Minimal | Clean Mendix SCSS Core
+# Minimal- /Clean- Mendix SCSS Core
 
 ### Folders
 
@@ -16,7 +16,7 @@ It also contains the un altered bootstrap files, It has to ship a exclusion vari
 
 An issue here is even though we can specify that Mendix Core Bootstrap shipped by default must be excluded it will still be in the project folder, it is unclear if at build time these files are bundled and shipped with or "treeshook" out.
 
-The image [Theme_Order.png](https://github.com/mendixlabs/clean-core-experiment-app-services/blob/main/Mendix9/Theme_Order.png) shows how developers must order the files.
+The image [Theme_Order.png](https://github.com/mendixlabs/cclean-core-app-services/blob/main/Mendix9/Theme_Order.png) shows how developers must order the files.
 
 Devs should also override their `exclusion-variables.scss` in their theme folder with the one provided
 
@@ -50,7 +50,7 @@ A solution here is to either override very specific or exclude the spacing file.
 
 A Mendix 8 project as created and the core was edited to remove some design code and very specific selectors that make it near imposable to override styling without using `!important` , the feeling was that the core must put down a basic structure but not provide design specific code. We also removed some bad practice code as such as `outline:none`
 
-View [this](https://github.com/mendixlabs/clean-core-experiment-app-services/blob/main/Mendix8/Clean/sass/main.scss) to see new import order
+View [this](https://github.com/mendixlabs/clean-core-app-services/blob/main/Mendix8/Clean/sass/main.scss) to see new import order
 
 ### New Bootstrap Imports
 
