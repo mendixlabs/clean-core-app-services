@@ -1,0 +1,352 @@
+/*
+==========================================================================
+* @Mixin (@include)
+==========================================================================
+*/
+
+// Default header for grids and lists
+
+@mixin grid-header() {
+  font-size: $font-size-small;
+  color: $gray-darker;
+  font-weight: normal;
+}
+
+// Grid labels
+
+@mixin grid-label($primary-color, $primary-color-transparency) {
+  .mx-datagrid-data-wrapper {
+    @include label($primary-color, $primary-color-transparency);
+  }
+}
+
+/*
+  ==========================================================================
+  * Listview && Grids- The default form Listview Grids and The default Mendix grid components for datagrid and templategrid
+  ==========================================================================
+*/
+
+/*
+  ==========================================================================
+  * Listview
+  ==========================================================================
+*/
+.mx-listview {
+  li {
+    border-color: $border-color-default;
+    padding: $form-input-padding-y $form-input-padding-x;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $row-hover;
+    }
+
+    &:focus {
+      background-color: $row-focus;
+      outline: none;
+    }
+
+    &:active {
+      background-color: $row-active;
+    }
+
+    // reset form-group spacings in listviews
+    .form-group {
+      margin: 0;
+    }
+  }
+
+  // List view avatars
+
+  &.listview-avatars {
+    .listview-avatar-column {
+      > *:not(:first-child) {
+        margin-left: $spacing-small;
+      }
+    }
+  }
+}
+
+/*
+  ==========================================================================
+  * Listview headers
+  ==========================================================================
+*/
+
+/*
+// Listviews with a listview header
+// The general sibling selector (~) selects all elements that are siblings of a specified element.
+// The adjacent sibling selector (+) doesn't work because of random react scripts. Will need to be changed when the react scripts bug has been fixed by R&D.
+*/
+
+.listview-header ~ .mx-listview {
+  li:first-child {
+    border-top-color: transparent;
+  }
+}
+
+.listview-header-with-search-and-action {
+  margin-bottom: $form-input-padding-y;
+  padding-left: 0;
+
+  input.form-control {
+    padding: $form-input-padding-y $form-input-padding-x;
+  }
+}
+
+.listview-header {
+  @include grid-header;
+  background: $gray-lightest;
+
+  // reset horizontal margin behavior
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .row > .col {
+    padding: $spacing-small;
+  }
+}
+
+// List view total amount of objects field
+.listview-total-field {
+  margin-top: 20px;
+  font-size: $font-size-smaller;
+}
+
+// list view no borders between rows
+.listview-unbordered {
+  .mx-listview {
+    li {
+      border-style: none;
+      padding: 10px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+/*
+  ==========================================================================
+  * Grids
+  ==========================================================================
+*/
+
+// Default data grid styling
+
+.mx-grid {
+  display: flex;
+  flex-direction: column;
+
+  // Clear unwanted borders
+
+  th,
+  td {
+    border: none;
+  }
+
+  // Search
+
+  .mx-grid-searchbar {
+    order: 1;
+    margin: 10px 0;
+    align-items: flex-end;
+
+    .mx-grid-search-inputs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-right: 4px;
+    }
+
+    .mx-grid-search-controls {
+      align-items: flex-end;
+      .mx-button {
+        margin-bottom: 0;
+        &:not(:first-child) {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  .mx-grid-search-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+    margin-bottom: 0px;
+    flex: 1;
+  }
+
+  .mx-grid-search-label {
+    font-size: $font-size-small;
+    color: $brand-default;
+    padding: 0;
+    text-align: left;
+  }
+
+  .mx-grid-search-input {
+    width: auto;
+    display: block;
+    padding: 0;
+    .form-control {
+      padding: 9px 10px;
+    }
+  }
+
+  // Controls
+
+  .mx-grid-controlbar {
+    order: 2;
+    height: 52px;
+    margin: 0;
+    align-items: flex-end;
+
+    .mx-grid-toolbar {
+      .mx-button {
+        margin-bottom: 10px;
+      }
+    }
+    .mx-grid-pagingbar {
+      button,
+      .mx-grid-paging-status {
+        font-size: $font-size-small;
+      }
+
+      .glyphicon-step-backward,
+      .glyphicon-step-forward {
+        font-family: "Glyphicons Halflings";
+      }
+    }
+  }
+
+  // Enumeration labels
+
+  td.datagrid-labels {
+    &[title="Label"] {
+      @include grid-label($brand-default, true);
+    }
+    &[title="Submitted"] {
+      @include grid-label($brand-primary-active, true);
+    }
+    &[title="Approved"] {
+      @include grid-label($brand-success-text, true);
+    }
+    &[title="Pending"] {
+      @include grid-label($brand-warning-text, true);
+    }
+    &[title="Rejected"] {
+      @include grid-label($brand-danger-text, true);
+    }
+  }
+
+  // Content
+  .mx-grid-content {
+    font-size: $font-size-small;
+    order: 3;
+
+    thead .mx-name-head-row {
+      background: $gray-lightest;
+      .mx-datagrid-head-caption {
+        @include grid-header;
+      }
+    }
+    tbody {
+      color: $font-light-color;
+      tr {
+        border-bottom: 1px solid $gray-primary;
+        &:hover {
+          background-color: $row-hover;
+        }
+        &:focus {
+          background-color: $row-focus;
+        }
+        &:active {
+          background-color: $row-active;
+        }
+      }
+    }
+  }
+  &.mx-templategrid {
+    overflow: inherit;
+    .mx-templategrid-content-wrapper {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+      .mx-templategrid-row .mx-templategrid-item {
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+// Data grid with separate call to action buttons
+
+.datagrid-cta {
+  position: relative;
+
+  // search
+  .mx-grid-searchbar {
+    max-width: 70%;
+  }
+
+  // Content
+  .mx-grid-content {
+    order: 2;
+  }
+
+  // Control
+  .mx-grid-controlbar {
+    order: 3;
+    justify-content: center;
+    .mx-grid-toolbar {
+      display: none;
+    }
+    .mx-grid-pagingbar {
+      margin-left: 0;
+    }
+  }
+
+  // CTA buttons
+  .cta-btn-toolbar {
+    position: absolute;
+    top: 42px;
+    right: 0px;
+  }
+}
+
+// Template grid avatar list
+
+.templategrid-avatars {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  align-items: flex-start;
+  .list-title {
+    font-size: $font-size-larger;
+    margin: 15px 0 30px 0;
+  }
+  .list-description {
+    margin-bottom: 15px;
+  }
+  button.list-button {
+    width: 100%;
+    &:first-of-type {
+      margin-top: 15px;
+    }
+  }
+}
+
+// Add's flexible height to data grids
+
+.datagrid-flexible-row-height {
+  tbody {
+    .mx-datagrid-data-wrapper {
+      white-space: normal;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+/*
+==========================================================================
+* Mendix tabcontainer - The default tabcontainer
+==========================================================================
+*/
+
+.mx-tabcontainer-tabs {
+	margin-bottom: $spacing-default;
+}
+
+
+/*
+==========================================================================
+* Page tabcontainer - The page tabcontainer
+==========================================================================
+*/
+
+%page-tabcontainer,
+.page-tabcontainer {
+	> .mx-tabcontainer-tabs {
+		@include layout-gutter-mixin();
+		background-color: $bg-color;
+		margin-bottom: 0;
+
+		> li:first-child {
+			padding-left: $spacing-small;
+		}
+
+		> li:last-child {
+			padding-right: $spacing-small;
+		}
+	}
+
+	// Fix for when there's a main layoutgrid inside a tabcontainer
+	.mx-layoutgrid-fluid {
+		&.main-page-container {
+			> .row {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}

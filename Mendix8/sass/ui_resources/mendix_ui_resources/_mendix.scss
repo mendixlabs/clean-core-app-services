@@ -1,0 +1,38 @@
+/*
+  ==========================================================================
+  * Mendix - Entry Point of Design System
+  ==========================================================================
+*/
+// base
+@import "base/reset";
+@import "base/base";
+@import "base/helpers";
+@import "base/typography";
+
+// widgets
+@import "widgets/layoutgrid";
+@import "widgets/inputs";
+@import "widgets/buttons";
+@import "widgets/tabcontainer";
+@import "widgets/navigationbar";
+@import "widgets/navigationtree";
+@import "widgets/tables";
+@import "widgets/modal";
+
+// building blocks
+@import "buildingblocks/miscellaneous";
+@import "buildingblocks/cards";
+@import "buildingblocks/progresstrackers";
+@import "buildingblocks/headers";
+@import "buildingblocks/navigation";
+@import "buildingblocks/wizards";
+@import "buildingblocks/feedback";
+@import "buildingblocks/labels";
+
+// layouts
+@import "layouts/layout-mendix";
+@import "layouts/layout-login";
+@import "buildingblocks/sidebar";
+
+// deprecated class names
+@import "deprecated-classnames";

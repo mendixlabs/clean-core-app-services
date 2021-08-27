@@ -1,0 +1,122 @@
+/* 
+==========================================================================
+* Wizards - The default wizard patterns
+==========================================================================
+*/
+
+// Horizontal wizard
+
+.wizard-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.line {
+  flex: 1;
+  color: $gray;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  font-size: $font-size-small;
+
+  .dot {
+    &:before {
+      content: "";
+      background-color: $gray-light;
+      border: 2px solid $gray-light;
+      border-radius: 50%;
+      display: block;
+      padding: 2px 0 0 1px;
+      position: relative;
+      top: 0;
+      z-index: 1;
+      width: $spacing-small;
+      height: $spacing-small;
+    }
+  }
+  .steps {
+    margin-top: $spacing-smallest;
+  }
+  &:after {
+    content: "";
+    top: 7px;
+    left: 50%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    border-color: $gray-light;
+    border-top: 2px solid $gray-light;
+  }
+  &:last-child {
+    &:after {
+      content: none;
+    }
+  }
+}
+
+// Vertical wizard
+
+.wizard-vertical {
+  position: relative;
+
+  .wizard-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .borderline {
+    width: 230px;
+    border-color: $gray-light;
+  }
+  .wizard-overview {
+    .line {
+      flex-direction: row;
+      padding: 14px 0;
+      font-size: $font-size-small;
+
+      .dot {
+        &:before {
+          margin-right: $spacing-small;
+          top: 0;
+        }
+      }
+      &:after {
+        top: 50%;
+        left: 7px;
+        height: 100%;
+        border-top: none;
+        border-left-width: 2px;
+        border-left-style: solid;
+      }
+    }
+  }
+}
+
+// States
+
+.wizard-step-active,
+.wizard-step-visited {
+  .dot {
+    &:before {
+      background-color: $bg-color;
+      border-color: $brand-primary;
+    }
+  }
+}
+
+.wizard-step-visited {
+  .dot {
+    &:before {
+      background-color: $brand-primary;
+
+      @extend %glyphicon;
+      content: "\e013";
+      color: $bg-color;
+      font-size: $font-size-smallest;
+    }
+  }
+  &:after {
+    border-color: $brand-primary;
+  }
+}

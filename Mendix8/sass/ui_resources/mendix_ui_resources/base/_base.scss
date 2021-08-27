@@ -1,0 +1,189 @@
+/*
+==========================================================================
+* Base
+==========================================================================
+*/
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+label {
+  font-weight: 600;
+}
+
+.glyphicon {
+  font-family: "mendix-icons", "Glyphicons Halflings";
+}
+
+%glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "mendix-icons", "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%transition {
+  -webkit-transition: all $default-transition-time ease-in-out;
+  -o-transition: all $default-transition-time ease-in-out;
+  transition: all $default-transition-time ease-in-out;
+}
+
+%box-shadow {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+// To ensure flexboxing works in different browsers
+%display-flex {
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+/*
+==========================================================================
+* Helpers - Helpers and abstract classes
+==========================================================================
+*/
+
+.left-align {
+  text-align: left;
+}
+.center-align {
+  text-align: center;
+}
+.right-align {
+  text-align: right;
+}
+.max-width {
+  max-width: $content-max-width;
+}
+
+.text-default {
+  color: $brand-default;
+}
+.text-primary {
+  color: $brand-primary;
+}
+.text-info {
+  color: $brand-info-text;
+}
+.text-success {
+  color: $brand-success-text;
+}
+.text-warning {
+  color: $brand-warning-text;
+}
+.text-danger {
+  color: $brand-danger-text;
+}
+.text-inverse {
+  color: $brand-inverse;
+}
+.text-small {
+  font-size: $font-size-small;
+}
+.text-bold {
+  font-weight: 600;
+}
+
+// Flexbox classes – used to implement them into Design Properties (settings.json)
+.row-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Flex alignments (NO important statements attached to fix the design property)
+.row-left {
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+
+.row-center {
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.row-right {
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+
+.col-left {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-right {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+// Media
+@media (max-width: $screen-sm-max) {
+  .hide-phone {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+  .hide-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+// Smooth transitions
+.div-smooth-transitions {
+  @extend %transition;
+}
+
+// Containers
+.div-full-width {
+  width: 100%;
+}
+
+// Background-colors
+
+.background-secondary {
+  background: $bg-color-secondary;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $default-border-color;
+}

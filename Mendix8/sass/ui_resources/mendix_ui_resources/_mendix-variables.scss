@@ -1,0 +1,188 @@
+@function percentage-of-color($base-color, $percentage-of-color) {
+  $remove-percentage: 100% - $percentage-of-color;
+  $result: scale-color(
+    $base-color,
+    $red: $remove-percentage,
+    $green: $remove-percentage,
+    $blue: $remove-percentage
+  );
+  @return $result;
+}
+
+//== Gray Shades
+
+//## Different gray shades to be used for our variables and components
+$gray-darker: #0a1325; // 100% gray value
+$gray-dark: percentage-of-color($gray-darker, 80%);
+$gray: percentage-of-color($gray-darker, 70%);
+$gray-medium: percentage-of-color($gray-darker, 30%);
+$gray-lighter: percentage-of-color($gray-darker, 10%);
+$gray-light: percentage-of-color($gray-darker, 20%);
+$gray-lightest: percentage-of-color($gray-darker, 5%);
+$gray-primary: percentage-of-color($gray-darker, 10%);
+
+//== Step 1: Brand Colors
+$brand-default: #0a1325;
+$brand-primary: #0cabf9;
+$brand-inverse: #0d2ed1;
+$brand-info: #cd45e9;
+$brand-success: #77dd77;
+$brand-warning: #eca51c;
+$brand-danger: #f14f56;
+
+$brand-primary-active: #1b85c3;
+$brand-primary-hover: #1497dd;
+$brand-info-hover: #be3dd7;
+$brand-info-active: #af36c4;
+$brand-info-text: #6c1c75;
+$brand-success-hover: #69cf72;
+$brand-success-active: #5cc16d;
+$brand-success-text: #258c27;
+$brand-warning-hover: #e6930e;
+$brand-warning-active: #df8001;
+$brand-warning-text: #d96a00;
+$brand-danger-hover: #e33f4e;
+$brand-danger-active: #d53047;
+$brand-danger-text: #ab0c3e;
+
+$brand-default-90: #232b3b;
+$brand-default-95: #161f30;
+
+// Used for other variables
+$default-border-color: $gray-primary;
+$border-radius-default: 4px;
+
+//== Step 3: Typography
+$font-family-import: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700";
+@if $font-family-import != false {
+  // Only import, if the import is set
+  @import url($font-family-import);
+}
+$font-family-base: "Noto Sans", "Open Sans", Arial, sans-serif;
+$font-base-size: 16px; //font-size-default
+$line-height-base: 1.5; // 24px for default font size
+$font-base-color: $gray-dark;
+$font-light-color: $gray;
+$font-lightest-color: #ffffff;
+$link-color: $brand-primary;
+$font-size-h1: 2.5rem; // 40px
+$font-size-h2: 2rem; // 32px
+$font-size-h3: 1.5rem; // 24px
+$font-size-h4: 1.125rem; // 18px
+$font-size-h5: 1rem; // 16px
+$font-size-h6: 0.875rem; // 14px
+$font-color-headers: $brand-default;
+
+$font-size-largest: 2.5rem; // 40px
+$font-size-larger: 2rem; // 32px
+$font-size-large: 1.5rem; // 24px
+$font-size-medium: 1.125rem; // 18px
+$font-size-small: 0.875rem; // 14px
+$font-size-smaller: 0.75rem; // 12px
+$font-size-smallest: 0.625rem; // 10px
+
+$form-input-padding-y: 8px;
+$form-input-padding-x: 12px;
+$input-field-minheight: calc(
+  (#{$font-base-size} * #{$line-height-base}) + (2 * #{$form-input-padding-y})
+);
+$input-field-line-height: calc(
+  #{$font-size-small} * #{$line-height-base} + (#{$font-size-small} / 10)
+);
+
+$button-line-height: $input-field-line-height;
+
+// Spacing
+$spacing-smallest: 8px;
+$spacing-small: 16px;
+$spacing-default: 24px;
+$spacing-medium: 32px;
+$spacing-large: 40px;
+$spacing-larger: 48px;
+$spacing-largest: 64px;
+$spacing-xlarge: 128px;
+
+// Backgrounds
+$bg-color: #ffffff;
+$bg-color-secondary: #f3f3f4;
+
+// Interaction
+$default-transition-time: 0.2s;
+
+//== Step 2: UI Customization
+
+// Topbar
+$topbar-bg: $brand-default;
+$navtopbar-border-color: $brand-default;
+$topbar-border-color: $navtopbar-border-color;
+$topbar-minimalheight: 60px;
+$navtopbar-color: #fff;
+$navbar-brand-name: #fff;
+$brand-logo: false;
+$brand-logo-height: 24px;
+$brand-logo-width: 24px;
+
+// Sidebar
+$sidebar-bg: $brand-default-90;
+$navsidebar-color: #ffffff;
+$navsidebar-color-hover: $navsidebar-color;
+
+// Sidebar template
+$sidebar-width: 50vw;
+$menu-width: 260px;
+
+// Navigation
+$navigation-bg: transparent;
+$navigation-bg-hover: rgba(255, 255, 255, 0.1);
+$navigation-bg-active: $navigation-bg;
+$navigation-color: #fff;
+$navigation-color-hover: #fff;
+$navigation-color-active: $brand-primary;
+$navigation-font-size: $font-size-default;
+$navigation-glyph-size: 24px;
+
+// List and grid state colors
+$row-hover: transparent; // rgba($gray-lightest, 0.6);
+$row-focus: rgba($gray-lightest, 0.8); // $gray-lightest;
+$row-active: transparent;
+
+// Input stuff
+$content-max-width: 800px;
+$formblock-width: 590px;
+$formblock-width: $content-max-width;
+$formgroup-narrow-width: 355px;
+$checkbox-size: 16px;
+$radiobutton-size: 14px;
+
+// Feedback boxes colors
+$feedback-info: #ecf9ff;
+$feedback-success: #f1fcf1;
+$feedback-warning: #fff9e6;
+$feedback-danger: #ffeef0;
+
+// == Old variables used in theme customizer to the new lib variables
+$font-size-default: $font-base-size;
+$font-color-default: $font-base-color;
+$border-color-default: $default-border-color;
+$font-color-header: $font-color-headers;
+
+//== Settings
+//## Enable or disable your desired framework features
+// Use of !important
+$important-flex: false; // ./base/flex.scss
+$important-spacing: false; // ./base/spacing.scss
+$important-helpers: false; // ./helpers/helperclasses.scss
+
+/*
+==========================================================================
+* %Placeholders && $Variables
+==========================================================================
+*/
+
+$page-gutter-1024: 40px;
+$page-gutter-1440: 80px;
+$page-gutter-1920: 120px;
+
+$column-gutter-1024: calc(12px / 2);
+$column-gutter-1440: calc(24px / 2);
+$column-gutter-1920: calc(24px / 2);

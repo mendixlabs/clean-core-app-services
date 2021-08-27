@@ -1,0 +1,122 @@
+/*
+==========================================================================
+* Modals and popups - Rules for the default Mendix / Bootstrap modal
+==========================================================================
+*/
+
+.modal-dialog,
+.mx-window {
+  .mx-window-content {
+    border: 1px solid $default-border-color;
+    border-radius: $border-radius-default;
+  }
+
+  // Header
+  .mx-window-header,
+  .mx-dialog-header {
+    border: none;
+    color: $brand-default;
+    padding: 30px 30px 0px;
+
+    // Close button
+    .close {
+      opacity: 1;
+      font-size: 0;
+      position: relative;
+      color: transparent;
+      &:before {
+        @extend %glyphicon;
+        content: "\e014";
+        color: $brand-default;
+        font-size: $font-size-h5;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: transparent;
+        &:before {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+
+  // Header styling
+  .modal-header h4,
+  h4 {
+    color: inherit;
+    margin-bottom: 15px;
+  }
+
+  .mx-layoutgrid {
+    > .row [class*=col] {
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 15px 30px;
+  }
+
+  // modal body fix for automated pop-ups
+  .mx-dialog-content {
+    .modal-body {
+      padding: 10px 30px;
+    }
+  }
+
+  // modal footer automated pop-ups
+  .modal-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 15px 30px 25px 30px;
+    border: none;
+  }
+
+  // Data view footer with CTA
+  .mx-dialog-footer,
+  .mx-dataview-controls {
+    text-align: right;
+
+    .btn {
+      margin-left: $spacing-small;
+      margin-bottom: 0;
+    }
+  }
+
+  // Labels
+  .form-group .control-label {
+    font-size: 14px;
+  }
+
+  // Use this class for the container with input fields
+  .container {
+    padding: 0;
+    display: flex;
+
+    div {
+      flex-grow: 1;
+      flex-basis: 0;
+
+      &:not(:last-child) {
+        padding-right: 20px;
+      }
+    }
+
+    .btn {
+      top: 30px;
+      width: 125px;
+      height: 45px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+  }
+}

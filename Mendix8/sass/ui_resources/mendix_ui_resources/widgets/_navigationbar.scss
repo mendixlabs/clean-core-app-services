@@ -1,0 +1,131 @@
+/*
+==========================================================================
+* Mendix navigationbar - The default navigationbar
+==========================================================================
+*/
+
+.mx-navbar {
+  background-color: transparent;
+  vertical-align: middle;
+  text-align: center;
+
+  .nav {
+    &:before,
+    &:after {
+      content: none;
+    }
+
+    .mx-navbar-item {
+      vertical-align: top;
+      display: inline-block;
+      float: none;
+
+      > a {
+        font-size: $font-size-small;
+        text-align: center;
+        background-color: transparent;
+        padding: 8px 20px;
+
+        .glyphicon {
+          display: block;
+          margin: 0 0 4px 0;
+        }
+
+        .caret {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: calc(50% - 2px);
+        }
+      }
+
+      &.active {
+        > a {
+          background-color: grey;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      margin-top: 6px;
+      .mx-navbar-subitem {
+        &.active {
+          a {
+            background-color: rgba($brand-default, 0.1);
+          }
+        }
+
+        a {
+          color: $brand-default-90;
+          font-size: $font-size-default;
+          min-height: 0;
+          padding: 15px 15px;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $brand-default;
+            background-color: rgba($brand-default, 0.1);
+          }
+          &:active {
+            color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+%right-navigationbar,
+.right-navigation {
+  padding-right: 30px;
+  .navbar-nav {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+%topbar-navigationbar,
+.topbar-navigationbar {
+  .navbar-nav {
+    .mx-navbar-item {
+      > a {
+        width: $topbar-minimalheight;
+        white-space: nowrap;
+        position: relative;
+        font-size: 0;
+        color: transparent;
+
+        .glyphicon {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+
+          color: $navigation-color;
+        }
+
+        .caret {
+          display: none;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: transparent;
+
+          .glyphicon {
+            color: $navigation-color-hover;
+          }
+        }
+        &:active {
+          .glyphicon {
+            color: $navigation-color-active;
+          }
+        }
+      }
+    }
+  }
+}

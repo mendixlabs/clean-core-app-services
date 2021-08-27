@@ -1,0 +1,294 @@
+/*
+==========================================================================
+* %Placeholders && $Variables
+==========================================================================
+*/
+
+$card-glyphicon-width: 40px;
+$card-glyphicon-margin: 6px;
+
+/*
+  ==========================================================================
+  * Cards - The default mendix cards
+  ==========================================================================
+*/
+
+.card {
+  padding: 25px;
+  background-color: $bg-color;
+  border-radius: $border-radius-default;
+  border: 1px solid $gray-light;
+  .mx-text {
+    margin: 0 0 10px;
+  }
+}
+
+/*
+==========================================================================
+*   Dashboard card small without CTA
+==========================================================================
+*/
+.dashboard-card-small {
+  display: flex;
+  flex-direction: row;
+  > .card-glyphicon-container {
+    flex: 1;
+  }
+
+  > .card-text-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    .card-title {
+      margin: 0;
+      display: block;
+      padding-bottom: 15px;
+      font-size: $font-size-h5;
+      font-weight: bold;
+    }
+    .card-value {
+      font-size: $font-size-h3;
+      font-weight: bold;
+    }
+  }
+}
+
+/*
+==========================================================================
+*   Dashboard card large without CTA
+==========================================================================
+*/
+
+.dashboard-card-large {
+  .card-glyphicon {
+    position: relative;
+  }
+  .card-title {
+    margin: 0;
+    padding-top: 10px;
+  }
+  .card-subtitle {
+    font-size: $font-size-h6;
+    color: $gray-medium;
+    padding-top: 5px;
+  }
+}
+
+// Experimental grid based card
+@mixin arrowbu($glyphcode) {
+  @extend %glyphicon;
+  content: $glyphcode;
+  font-weight: bold;
+  margin-right: 8px;
+  position: absolute;
+  left: -36px;
+}
+
+@mixin arrow($glyphcode) {
+  @extend %glyphicon;
+  content: $glyphcode;
+  font-weight: bold;
+  position: absolute;
+  left: -36px;
+  top: 0;
+}
+
+.dashboard-card-statistics-large {
+  .card-title {
+    margin: 0;
+    font-size: $font-size-medium;
+    font-weight: bold;
+  }
+  .card-value {
+    font-size: ($font-size-larger - 0.125rem);
+    font-weight: 500;
+  }
+  .card-subtitle {
+    font-size: $font-size-h6;
+    color: $gray-medium;
+    margin: 0;
+    padding-top: 5px;
+  }
+  .card-bottom-half {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    .card-statistics-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      .card-statistics-value-container {
+        display: flex;
+        .card-glyphicon {
+          width: $card-glyphicon-width !important;
+          margin-right: $card-glyphicon-margin;
+        }
+      }
+      .card-percentage-subtext {
+        color: $gray;
+        margin-left: $card-glyphicon-width + $card-glyphicon-margin;
+      }
+      .card-percentage {
+        font-size: $font-size-large;
+        color: $gray;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+.dashboard-card-large-grid {
+  .mx-layoutgrid {
+    padding: 0;
+  }
+  .row {
+    margin: 0;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    .col {
+      padding: 0;
+      display: flex;
+      &.card-column-stack {
+        flex-direction: column;
+      }
+      &.card-column-center-vertically {
+        align-items: center;
+      }
+    }
+  }
+  .card-title {
+    margin: 0;
+    font-size: $font-size-medium;
+    font-weight: bold;
+  }
+  .card-value {
+    font-size: $font-size-larger;
+    font-weight: 500;
+  }
+  .card-subtitle {
+    font-size: $font-size-h6;
+    color: $gray-medium;
+    margin: 0;
+    padding-top: 5px;
+  }
+  .card-percentage-subtext {
+    color: $gray;
+  }
+}
+
+/*
+==========================================================================
+*   Dashboard card with CTA
+==========================================================================
+*/
+
+// Default is styling of small interaction card
+.interaction-card {
+  .card-title {
+    display: block;
+    font-size: $font-size-h4;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .card-toolbar {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .btn {
+    font-size: $font-size-h6;
+    padding: 7px 28px;
+  }
+}
+
+// Larger interaction card
+.interaction-card-large {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 180px;
+    height: 125px;
+    margin-right: 20px;
+    flex: 1;
+  }
+  .card-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    .card-title {
+      display: block;
+      font-size: $font-size-h4;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+  }
+  .card-toolbar {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+/*
+==========================================================================
+*   Contact card
+==========================================================================
+*/
+
+.contact-card {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  > [class*=avatar] {
+    .mx-image, .mx-text {
+      margin-right: $spacing-small;
+      margin-bottom: 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+    padding: 0;
+    margin-right: $spacing-small;
+
+    .card-title {
+      font-size: $font-size-h6;
+      font-weight: bold;
+      margin: 10px 0 0;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: $gray-medium;
+    }
+  }
+  .btn-toolbar, .mx-link {
+    margin-right: 10px;
+  }    
+  @media only screen and (max-width: 768px) {
+    .btn-toolbar, .mx-link {
+      margin-left: 0;
+    }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

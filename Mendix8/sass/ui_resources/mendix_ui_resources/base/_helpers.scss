@@ -1,0 +1,145 @@
+/*
+==========================================================================
+* Helpers - Dynamic components which can be re-used and re-styled according to your wishes
+==========================================================================
+*/
+
+// Dynamic border lines
+@mixin border-sizes {
+  $starting-var: 9;
+  $border-types: "top", "left", "bottom", "right";
+  // $gray: $color;
+
+  @each $side in $border-types {
+    // Loop through all of the variables
+    @for $i from 1 through $starting-var {
+      // Create the rule
+      .border-#{$side}-#{100 * $i} {
+        border-#{$side}-width: $i + px;
+        border-#{$side}-color: $gray-lighter;
+        border-#{$side}-style: solid;
+      }
+    }
+  }
+}
+
+@include border-sizes;
+
+// Dynamic spacing - TODO: check if we still need them as we're not going with 'tailwind' architecture.
+@mixin generate($prefix, $property) {
+  // List of sizes to generate for each
+  $sizes: (0, 0.25, 0.5, 1, 1.5, 3);
+  // Spacing to multiply the sizes by
+  $spacing: 1rem;
+
+  // Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+  @for $i from 1 through length($sizes) {
+    // Get the size for the current index
+    $size: nth($sizes, $i);
+
+    // Create the rule
+    #{$prefix}-#{$i - 1} {
+      #{$property}: $spacing * $size;
+    }
+  }
+}
+
+@include generate(mt, margin-top);
+
+@include generate(pt, padding-top);
+
+/*
+==========================================================================
+* @Mixin (@include)
+==========================================================================
+*/
+
+@mixin layout-gutter-mixin() {
+  transition: all 0.5s;
+  @media (max-width: 1024px) {
+    padding-left: $page-gutter-1024;
+    padding-right: $page-gutter-1024;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    padding-left: $page-gutter-1440;
+    padding-right: $page-gutter-1440;
+  }
+  @media (min-width: 1440px) {
+    padding-left: $page-gutter-1920;
+    padding-right: $page-gutter-1920;
+  }
+}
+
+@mixin layout-scrollcontainer-gutter-mixin() {
+  transition: all 0.5s;
+
+  > .mx-scrollcontainer-wrapper {
+    padding: $spacing-large;
+  }
+
+  &:last-child > .mx-scrollcontainer-wrapper {
+    > .mx-scrollcontainer-wrapper {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &:first-child > .mx-scrollcontainer-wrapper {
+      padding-left: $page-gutter-1024 + $spacing-small;
+    }
+    &:last-child > .mx-scrollcontainer-wrapper {
+      padding-right: $page-gutter-1024 + $spacing-small;
+    }
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    &:first-child > .mx-scrollcontainer-wrapper {
+      padding-left: $page-gutter-1440 + $spacing-small;
+    }
+    &:last-child > .mx-scrollcontainer-wrapper {
+      padding-right: $page-gutter-1440 + $spacing-small;
+    }
+  }
+  @media (min-width: 1440px) {
+    &:first-child > .mx-scrollcontainer-wrapper {
+      padding-left: $page-gutter-1920 + $spacing-small;
+    }
+    &:last-child > .mx-scrollcontainer-wrapper {
+      padding-right: $page-gutter-1920 + $spacing-small;
+    }
+  }
+}
+
+// Default mixin for all labels
+
+@mixin label($primary-color, $primary-color-transparency: false) {
+  @if ($primary-color-transparency) {
+    background-color: rgba($primary-color, 0.2);
+    color: $primary-color;
+  } @else {
+    background-color: $primary-color;
+    color: $font-lightest-color;
+  }
+
+  font-size: $font-size-smaller;
+  padding: #{$spacing-smallest/2} $spacing-smallest;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+}
+
+// @mixin label($primary-color, $label-font-in-color: false) {
+//   background-color: rgba($primary-color, 0.2);
+//   @if ($label-font-in-color) {
+//     color: $primary-color;
+//   } @else {
+//     color: $font-base-color;
+//   }
+//   font-size: $font-size-smallest;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   display: inline-block;
+//   vertical-align: middle;
+//   padding: 4px 8px;
+//   border-radius: $border-radius-default;
+//   text-align: center;
+// }

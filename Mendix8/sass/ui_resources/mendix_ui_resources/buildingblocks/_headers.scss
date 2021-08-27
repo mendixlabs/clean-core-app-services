@@ -1,0 +1,171 @@
+/*
+==========================================================================
+* %Placeholders && $Variables
+==========================================================================
+*/
+
+$header-left-width: 60%;
+$header-right-width: 40%;
+
+/*
+  ==========================================================================
+  * Headers
+  ==========================================================================
+*/
+.mx-title {
+  font-size: $font-size-h2;
+  color: $gray-darker;
+  padding: 0 0 8px 0;
+  margin: 0;
+}
+
+.header-with-image-tabs {
+  margin-top: -60px;
+}
+
+.header-default {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 38px 0px;
+
+  &.header-transparent {
+    background-color: $bg-color-secondary;
+  }
+
+  h1,
+  h2 {
+    font-size: $font-size-h2;
+  }
+
+  .row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .header-subtitle-primary {
+    color: $gray-darker;
+  }
+  .header-subtitle-secondary {
+    color: $gray;
+  }
+  &.header-with-cards {
+    flex-wrap: wrap;
+    // If Cards Are Not Wrapped in One data View
+    > .mx-dataview {
+      padding-top: 20px;
+      padding-right: 0;
+      padding-left: 0;
+      width: 100%;
+      .mx-layoutgrid {
+        padding: 0;
+      }
+
+      .row {
+        > div[class^="col-"]:first-child {
+          padding-left: 0;
+        }
+        > div[class^="col-"]:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    // If Cards Are Not Wrapped in One data View
+    > .mx-layoutgrid {
+      padding-top: 20px;
+      padding-right: 0;
+      padding-left: 0;
+      .mx-dataview {
+        .mx-layoutgrid {
+          padding: 0;
+        }
+      }
+      .row {
+        > div[class^="col-"]:first-child {
+          padding-left: 0;
+        }
+        > div[class^="col-"]:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  .header-input-container {
+    width: $header-left-width;
+    position: relative;
+    display: flex;
+    .header-search-input {
+      flex: 3;
+    }
+    .header-dropdown-input {
+      flex: 1;
+      margin-left: 10px;
+    }
+  }
+
+  &.header-detailpage-large {
+    .header-subtitle {
+      color: $gray-darker;
+      font-weight: 500;
+    }
+  }
+
+  .header-with-wizard,
+  &.header-with-wizard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header-wizard {
+      flex-basis: 60%;
+    }
+  }
+
+  .header-search {
+    font-weight: bold;
+  }
+  .header-search-input {
+    font-size: $font-size-medium;
+    .search-bar {
+      /* NOTE: search bar has been moved to the right to align with the PDS.
+      &:before {
+        @extend %glyphicon;
+        content: "\e003";
+        position: absolute;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 6px;
+        font-size: $font-size-medium;
+        top: ($font-size-medium/1.2);
+        border-right: 2px solid $gray;
+      }
+      input {
+        padding-left: 40px;
+      }
+            */
+      button {
+        top: ($font-size-medium/1.5);
+        span {
+          top: -1px;
+        }
+      }
+    }
+  }
+  &.header-with-image-tabs {
+    margin-top: 0;
+    padding-bottom: 58px;
+  }
+  &.header-with-image {
+    img {
+      position: absolute;
+      height: auto;
+      top: 0;
+      left: 0;
+    }
+
+    .header-titles-container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

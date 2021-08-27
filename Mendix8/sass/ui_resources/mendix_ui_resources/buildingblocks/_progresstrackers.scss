@@ -1,0 +1,43 @@
+/*
+  ==========================================================================
+  * Progress trackers -  The default progress tracker patterns
+  ==========================================================================
+*/
+
+// Experimental tasklist wizard (needs to be reviewed). Deprecated tasklist code can be found in _deprecated_classnames.scss
+
+.tasklist-wizard {
+	background-color: $bg-color;
+	border: 2px solid $gray-light;
+	padding: $spacing-default;
+	border-radius: 6px;
+	margin-bottom: 30px;
+
+	.step-number {
+		color: $brand-primary;
+		font-size: $font-size-h3;
+		width: 46px;
+		height: 46px;
+		text-align: center;
+		line-height: 42px;
+		border-radius: $spacing-default;
+		border: 2px solid $brand-primary;
+	}
+
+	.card-title {
+		font-weight: normal;
+		font-size: $font-size-h3;
+		margin-top: $spacing-smallest / 2;
+		margin-bottom: $spacing-smallest;
+	}
+
+	&:not(:last-child):after {
+		content: "";
+		position: absolute;
+		width: 2px;
+		height: 32px;
+		margin-top: $spacing-default;
+		left: 15%;
+		background-color: $gray-light;
+	}
+}

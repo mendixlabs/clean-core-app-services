@@ -1,0 +1,78 @@
+/*
+==========================================================================
+* Layoutgrid - The default form layoutgrid
+==========================================================================
+*/
+.container, .container-fluid {
+	padding-left: $spacing-small;
+	padding-right: $spacing-small;
+}
+
+.row {
+	margin-left: -$spacing-small;
+	margin-right: -$spacing-small;
+}
+
+.col {
+	padding-right: $spacing-small;
+	padding-left: $spacing-small;
+}
+
+.mx-layoutgrid {
+
+
+	// dproperty
+	&.layoutgrid-no-side, .layoutgrid-no-side {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+// Layoutgrid as a form
+
+.form-layoutgrid {
+  margin-top: 30px;
+
+  .row {
+    background-color: #fff;
+    padding: 20px;
+
+    &:first-child {
+      background-color: transparent;
+      padding: 0;
+    }
+    &:last-child {
+      background-color: transparent;
+      padding: 30px 0;
+      [class*="col"] {
+        padding: 0;
+      }
+    }
+  }
+  .stage-title {
+    margin-bottom: 20px;
+  }
+  .stage-subtitle {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .btn-toolbar {
+    display: flex;
+    position: relative;
+
+    .btn-primary {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+// Extra rules in case a wizard is placed next to the form
+.form-layoutgrid-wrapper {
+  margin-top: 30px;
+  .form-layoutgrid {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,91 @@
+/*
+==========================================================================
+* Labels - The default rules for mendix labels
+==========================================================================
+*/
+
+// Default label colors
+
+.label-default {
+  @include label($brand-default, true);
+}
+
+.label-primary {
+  @include label($brand-primary-active, true);
+}
+
+.label-success {
+  @include label($brand-success-text, true);
+}
+
+.label-info {
+  @include label($brand-info-text, true);
+}
+
+.label-warning {
+  @include label($brand-warning-text, true);
+}
+
+.label-danger {
+  @include label($brand-danger-text, true);
+}
+
+// ==== Variations ====
+// Filled label colors
+
+.label-default-filled {
+  @include label($brand-default, false);
+}
+
+.label-primary-filled {
+  @include label($brand-primary-active, false);
+}
+
+.label-success-filled {
+  @include label($brand-success-text, false);
+}
+
+.label-info-filled {
+  @include label($brand-info-text, false);
+}
+
+.label-warning-filled {
+  @include label($brand-warning-text, false);
+}
+
+.label-danger-filled {
+  @include label($brand-danger-text, false);
+}
+
+/*
+==========================================================================
+* Label definitions – Attribute Helper Widget
+==========================================================================
+*/
+
+// =======================================================================
+// Note: These labels are created to accomodate the use in the Mendix Design System.
+// Each project has their own variables and quirks to work with, so you can
+// copy & paste the code below and put the labels on App level.
+// =======================================================================
+// TO DO: Define usage of labels + Attribute Helper in Living Styleguide
+
+[label*="approved"] {
+  @extend .label-success;
+}
+
+[label*="added"] {
+  @extend .label-primary;
+}
+
+[label*="changed"] {
+  @extend .label-info;
+}
+
+[label*="conflicteddata"] {
+  @extend .label-warning;
+}
+
+[label*="deleted"] {
+  @extend .label-danger;
+}

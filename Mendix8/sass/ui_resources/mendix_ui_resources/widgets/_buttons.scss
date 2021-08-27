@@ -1,0 +1,206 @@
+/*
+==========================================================================
+* Buttons - The default rules for mendix buttons
+==========================================================================
+*/
+
+.btn,
+.mx-button {
+  @extend %transition;
+
+  background-color: transparent;
+  border: 1px solid $brand-default;
+  border-radius: $border-radius-default;
+  padding: $spacing-smallest $spacing-small;
+  color: $brand-default;
+  font-size: $font-size-small;
+  line-height: $button-line-height;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgba($brand-default, 0.1);
+    border-color: $brand-default;
+  }
+  &:active {
+    background-color: $brand-default;
+    color: $font-lightest-color;
+    box-shadow: none;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.mx-link {
+  .glyphicon-step-forward,
+  .glyphicon-step-backward {
+    font-size: 1.5em;
+    line-height: $font-size-default;
+    vertical-align: middle;
+    top: -2px;
+  }
+}
+
+.btn-primary,
+.btn-success {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: $font-lightest-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $brand-primary-hover;
+    border-color: $brand-primary-hover;
+  }
+  &:active {
+    background-color: $brand-primary-active;
+    border-color: $brand-primary-active;
+  }
+}
+
+.btn-inverse {
+  background-color: $gray-dark;
+  color: $font-lightest-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $gray-darker;
+    color: $font-lightest-color;
+  }
+}
+
+.btn-danger,
+.btn-warning {
+  border-color: $brand-danger;
+  color: $brand-danger;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgba($brand-danger, 0.1);
+    border-color: $brand-danger;
+    color: $brand-danger;
+  }
+  &:active {
+    background-color: $brand-danger;
+    color: $font-lightest-color;
+  }
+}
+
+.btn-link {
+  border-color: transparent;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    border-color: transparent;
+    background-color: rgba($brand-default, 0.1);
+  }
+  &:active {
+    background-color: rgba($brand-default, 0.15);
+  }
+  &.btn-primary {
+    color: $brand-primary;
+  }
+  &.mx-link {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 0;
+    color: $brand-default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $brand-primary;
+      background-color: transparent;
+    }
+    &:active {
+      color: darken($brand-primary, 10%);
+    }
+
+    &.link-primary {
+      color: $brand-primary;
+
+      &:hover,
+      &:focus {
+        color: darken($brand-primary, 10%);
+      }
+      &:active {
+        color: darken($brand-primary, 20%);
+      }
+    }
+  }
+}
+
+.nav-toggle-btn,
+%nav-toggle-btn {
+  padding: 13px 18px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  width: $topbar-minimalheight;
+  height: $topbar-minimalheight;
+  font-size: $navigation-glyph-size;
+  color: $navtopbar-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $navtopbar-color;
+    background-color: $navigation-bg-hover;
+  }
+
+  &:active {
+    color: $brand-primary;
+  }
+
+  .glyphicon {
+    top: 3px;
+  }
+}
+
+.mx-dataview-controls,
+.btn-toolbar {
+  .back-btn {
+    margin-right: auto;
+  }
+}
+
+/*
+==========================================================================
+* Button toolbar - The default rules for mendix buttons
+==========================================================================
+*/
+.btn-toolbar {
+  margin-left: -$spacing-smallest;
+
+  .btn,
+  .mx-link {
+    margin-left: $spacing-smallest;
+  }
+}
+
+.btn-toolbar-right {
+  margin-right: -$spacing-smallest;
+
+  .btn,
+  .mx-link {
+    margin-left: $spacing-smallest;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+// Generic rules for mendix buttons when NOT in a button toolbar
+.btn ~ .btn {
+  margin-left: $spacing-smallest;
+}

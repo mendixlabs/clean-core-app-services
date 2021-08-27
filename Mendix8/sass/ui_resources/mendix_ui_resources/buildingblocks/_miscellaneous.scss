@@ -1,0 +1,89 @@
+/*
+==========================================================================
+* @Mixin
+==========================================================================
+*/
+// Round avatar
+
+@mixin round-avatar($avatar-size) {
+  border-radius: 50%;
+  width: $avatar-size;
+  height: $avatar-size;
+  @at-root span#{&} {
+    font-size: ($avatar-size / 2.4);
+    color: rgba($gray-dark, 0.5);
+    background: $gray-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  @at-root img#{&} {
+    object-fit: cover;
+    min-width: $avatar-size;
+    min-height: $avatar-size;
+  }
+}
+
+/*
+  ==========================================================================
+  * Misc - Collection of items to small to be categorized
+  ==========================================================================
+*/
+
+// Avatars
+
+.avatar-32 {
+  img,
+  span {
+    @include round-avatar(32px);
+  }
+}
+
+.avatar-40 {
+  img,
+  span {
+    @include round-avatar(40px);
+  }
+}
+
+.avatar-56 {
+  img,
+  span {
+    @include round-avatar(56px);
+  }
+}
+
+.avatar-80 {
+  img,
+  span {
+    @include round-avatar(80px);
+  }
+}
+
+.avatar-112 {
+  img,
+  span {
+    @include round-avatar(112px);
+  }
+}
+
+// Default bullet points
+
+.bullet-list {
+  .mx-text {
+    display: block;
+    &:before {
+      content: "\2022";
+      margin-right: 20px;
+      margin-left: 12px;
+    }
+  }
+}
+
+// Default line
+
+.border-line {
+  border-top: 1px solid $gray-lighter;
+}

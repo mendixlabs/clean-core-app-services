@@ -1,0 +1,77 @@
+/*
+  ==========================================================================
+  * Navigation
+  ==========================================================================
+*/
+
+// Tab container styling
+
+.mx-tabcontainer {
+  .mx-tabcontainer-tabs {
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: solid 2px $gray-primary;
+    li[role="presentation"] {
+      float: unset;
+      margin-bottom: -2px;
+      a[class^="mx-name-tabPage"] {
+        border: 0;
+        outline: 0;
+        color: $gray;
+        font-weight: 500;
+        padding: 20px 18px;
+        border-radius: unset;
+        font-size: $font-size-small;
+        border-bottom: 2px solid transparent;
+        &:focus,
+        &:hover {
+          background: none;
+        }
+      }
+      &.active a[class^="mx-name-tabPage"] {
+        background: none;
+        color: $brand-primary;
+        border-bottom: 2px solid $brand-primary;
+      }
+    }
+  }
+}
+
+// Breadcrumb styling
+
+.breadcrumb {
+  padding: 0;
+  margin-bottom: $spacing-smallest;
+  border-radius: unset;
+  background: transparent;
+  > a {
+    font-size: $font-size-small;
+    color: $font-base-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-primary-hover;
+    }
+
+    &:not(:last-child):after {
+      content: "/";
+      color: $font-base-color;
+      margin: 0 8px;
+    }
+  }
+}
+
+// Breadcrumb back button
+
+.breadcrumb-back {
+  font-size: $font-size-small;
+  &:hover {
+    text-decoration: none;
+  }
+  &:before {
+    @extend %glyphicon;
+    content: "\e091";
+    font-weight: bold;
+    margin-right: 8px;
+  }
+}

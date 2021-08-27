@@ -1,0 +1,97 @@
+/*
+==========================================================================
+* Navigation Tree
+==========================================================================
+*/
+
+.mx-navigationtree {
+  .navbar-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  li {
+    border-bottom: none;
+
+    a {
+      padding: 8px;
+      border-radius: $border-radius-default;
+      color: rgba($navigation-color, 0.75);
+      font-size: $font-size-default;
+      margin-bottom: 6px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $navigation-bg-hover;
+      }
+
+      &:active {
+        color: rgba($navigation-color, 1);
+      }
+
+      &.active {
+        color: rgba($navigation-color, 1);
+        font-weight: 600;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .mx-navigationtree-has-items {
+    > a {
+      display: flex;
+      flex-direction: row;
+    }
+    .caret {
+      width: auto;
+      height: auto;
+      border: none;
+      margin-left: auto;
+
+      &:before {
+        @extend %glyphicon;
+        content: "\e260";
+      }
+    }
+
+    ul {
+      background-color: transparent;
+    }
+
+    li {
+      margin-left: 0;
+      padding: 0;
+
+      a {
+        padding: 8px 8px 8px 20px;
+        background-color: transparent;
+        font-size: $font-size-small;
+        color: rgba($navigation-color, 0.75);
+        margin-bottom: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $navigation-bg-hover;
+          color: rgba($navigation-color, 0.75);
+        }
+
+        &:active {
+          color: rgba($navigation-color, 1);
+        }
+
+        &.active {
+          color: rgba($navigation-color, 1);
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  .mx-navigationtree-collapsed {
+    .caret:before {
+      content: "\e259";
+    }
+  }
+}

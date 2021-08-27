@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Login
+
+   Default Login layer
+========================================================================== */
+// Utilities
+@import "bootstrap_3_3_4";
+@import "core/_legacy/bootstrap/bootstrap-rtl";
+@import "bootstrap_grid_4_5_3";
+//@import 'ui_resources/mendix_ui_resources/legacy/mxui_mendix';
+
+// Default variables
+@import "core/variables";
+
+// Custom variables
+@import "ui_resources/mendix_ui_resources/mendix-variables";
+@import "app/custom-variables";
+
+// core layer
+@import "core/base/base";
+@import "core/widgets/inputs";
+@import "core/widgets/alerts";
+@import "core/widgets/buttons";
+@import "core/widgets/glyphicons";
+@import "core/widgets/radiobuttons";
+@import "core/widgets/typography";
+// @import "core/widgets/layoutgrid";
+
+// Mendix layer
+// base
+@import "ui_resources/mendix_ui_resources/base/reset";
+@import "ui_resources/mendix_ui_resources/base/base";
+@import "ui_resources/mendix_ui_resources/base/typography";
+
+// widgets
+@import "ui_resources/mendix_ui_resources/widgets/buttons";
+@import "ui_resources/mendix_ui_resources/widgets/layoutgrid";
+@import "ui_resources/mendix_ui_resources/widgets/inputs";
+@import "ui_resources/mendix_ui_resources/widgets/modal";
+
+// custom widgets
+
+// building blocks
+
+// layouts
+//@import 'ui_resources/mendix_ui_resources/layouts/layout-mendix';
+@import "ui_resources/mendix_ui_resources/layouts/layout-login";
+
+// login fix
+@import "app/login";

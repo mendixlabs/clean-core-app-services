@@ -1,0 +1,253 @@
+/* 
+==========================================================================
+* Sidebar
+==========================================================================
+*/
+
+$sidebarpage-maincontent-width: 100vw - $sidebar-width;
+$menu-maincontent-deduction: ($sidebarpage-maincontent-width / 1vw) / 100 *
+  $menu-width;
+$menu-sidebar-deduction: (($sidebar-width / 1vw) / 100) * $menu-width;
+
+.region-content-main
+  .mx-placeholder
+  > .sidebar-page.mx-dataview
+  .mx-dataview-content {
+  height: 100% !important;
+  padding-right: 0 !important;
+}
+
+.mx-scrollcontainer-open .sidebar-page .content-and-sidebar > .row {
+  .sidebar-maincontent-column {
+    @media (max-width: 1024px) {
+      max-width: calc(
+        #{$sidebarpage-maincontent-width} - #{$page-gutter-1024} - #{$menu-maincontent-deduction}
+      );
+    }
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      max-width: calc(
+        #{$sidebarpage-maincontent-width} - #{$page-gutter-1440} - #{$menu-maincontent-deduction}
+      );
+    }
+    @media (min-width: 1440px) {
+      max-width: calc(
+        #{$sidebarpage-maincontent-width} - #{$page-gutter-1920} - #{$menu-maincontent-deduction}
+      );
+    }
+  }
+  .sidebar-column {
+    width: calc(#{$sidebar-width} - #{$menu-sidebar-deduction});
+
+    &.sidebar-blocking {
+      &:not(:empty):before {
+        left: $menu-width;
+        width: calc(100vw - #{$menu-width});
+        transition: width $default-transition-time,
+          border-width $default-transition-time, margin $default-transition-time;
+      }
+    }
+
+    .sidebar-content {
+      width: calc(#{$sidebar-width} - #{$menu-sidebar-deduction});
+    }
+  }
+}
+
+.sidebar-page {
+  height: 100%;
+  padding-top: 0;
+  .content-and-sidebar {
+    height: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    & > .row {
+      flex-wrap: nowrap;
+      height: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      .sidebar-filler-column {
+        flex-basis: auto;
+        padding: 0;
+      }
+
+      .sidebar-maincontent-column {
+        flex: 0 0 100%;
+        padding-top: $spacing-medium;
+        @media (max-width: 1024px) {
+          max-width: calc(
+            #{$sidebarpage-maincontent-width} - #{$page-gutter-1024}
+          );
+          padding-right: $column-gutter-1024;
+        }
+        @media (min-width: 1025px) and (max-width: 1440px) {
+          max-width: calc(
+            #{$sidebarpage-maincontent-width} - #{$page-gutter-1440}
+          );
+          padding-right: $column-gutter-1440;
+        }
+        @media (min-width: 1440px) {
+          max-width: calc(
+            #{$sidebarpage-maincontent-width} - #{$page-gutter-1920}
+          );
+          padding-right: $column-gutter-1920;
+        }
+        .sidebar-maincontent {
+          background: white;
+          padding: 20px;
+        }
+      }
+
+      .sidebar-column {
+        flex-basis: auto;
+        max-width: initial;
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        background: white;
+        width: $sidebar-width;
+        border-left: 1px solid $gray-lighter;
+        transition: width $default-transition-time,
+          border-width $default-transition-time, margin $default-transition-time;
+        margin-left: 0;
+        position: relative;
+        &:empty {
+          width: 0;
+          border-width: 0px;
+          margin-left: $page-gutter-1440;
+        }
+
+        &.sidebar-blocking {
+          &:not(:empty):before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(#000000, 0.4);
+            left: 0;
+            transition-property: width;
+          }
+
+          .sidebar-scrollcontainer {
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        button.sidebar-close {
+          position: absolute;
+          right: 0;
+          border: 0;
+          margin: 4px;
+          border-radius: 50%;
+          padding: 8px 13px;
+        }
+        .sidebar-content {
+          z-index: 5;
+          width: $sidebar-width;
+          background: white;
+          margin-top: 0;
+          display: block;
+          flex-direction: column;
+          position: fixed;
+          overflow-y: auto;
+          height: 100%;
+          padding: $spacing-medium 0 0 $spacing-larger;
+          &:empty {
+            width: 0%;
+          }
+          @media (max-width: 1024px) {
+            padding-right: calc(#{$page-gutter-1024} + 15px);
+          }
+          @media (min-width: 1025px) and (max-width: 1440px) {
+            padding-right: calc(#{$page-gutter-1440} + 15px);
+          }
+          @media (min-width: 1440px) {
+            padding-right: calc(#{$page-gutter-1920} + 15px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// sidepanel itself
+.sidebar-scrollcontainer {
+  height: 100%;
+  min-width: $sidebar-width;
+  background-color: $bg-color;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    padding: $spacing-medium;
+  }
+
+  .sidebar-scrollcontainer-header {
+    // h2 and h3 in the header should look similar
+    h2,
+    h3 {
+      margin: 0;
+      font-size: $font-size-h3;
+    }
+  }
+
+  .sidebar-scrollcontainer-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    flex: 1;
+    overflow-y: auto;
+
+    > div {
+      padding-bottom: $spacing-medium;
+    }
+  }
+}
+
+// Fix for when the main sidebar navigation menu is open
+.mx-scrollcontainer-open {
+  .sidebar-scrollcontainer {
+    min-width: calc(#{$sidebar-width} - #{$menu-width});
+  }
+}
+
+// Experimental section
+
+.sidebar-layoutgrid {
+  .sidebar-maincontent {
+    background: $bg-color;
+    padding: 20px;
+  }
+
+  .sidebar-panel-column {
+    flex-basis: auto;
+    //max-width: initial;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    background: white;
+    width: $sidebar-width;
+    border-left: 1px solid $gray-lighter;
+    transition: width $default-transition-time,
+      border-width $default-transition-time, margin $default-transition-time;
+    margin-left: 0;
+
+    &:empty {
+      margin-left: 0;
+      width: 0;
+      border: none;
+    }
+
+    .sidebar-close {
+      border: 0;
+      margin: 0;
+      border-radius: 50%;
+      padding: 8px 13px;
+    }
+  }
+}
+
+.layoutgrid-maxed {
+  max-width: 1024px;
+  margin: 0 auto;
+}

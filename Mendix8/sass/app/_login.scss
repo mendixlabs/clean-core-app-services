@@ -1,0 +1,39 @@
+.form-group {
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Login page responsiveness fix
+========================================================================== */
+
+.layout-login {
+  @media screen and (max-width: 900px) {
+    .mx-layoutgrid > .row {
+      flex-direction: column;
+    }
+
+    .login-left-column {
+      display: none;
+    }
+
+    .login-right-column {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .loginform-wrapper {
+      margin: auto;
+    }
+
+    #loginButton {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    h1,
+    .h1 {
+      font-size: $font-size-h2;
+    }
+  }
+}

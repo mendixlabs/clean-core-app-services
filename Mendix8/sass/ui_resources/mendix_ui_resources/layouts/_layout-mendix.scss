@@ -1,0 +1,208 @@
+/* 
+==========================================================================
+* Mendix layout - The core structure of all mendix layouts
+==========================================================================
+*/
+
+/*
+==========================================================================
+* Page-Layout
+==========================================================================
+*/
+
+.page-layoutgrid {
+	background: $bg-color;
+
+		> .row {
+			padding-bottom: 4rem;
+		}
+}
+
+.region-content-header {
+	.mx-placeholder {
+		.header-default {
+			@include layout-gutter-mixin();
+		}
+	}
+}
+
+.region-content-main {
+  .header-default {
+    @include layout-gutter-mixin();
+    &.header-transparent {
+      background-color: transparent;
+    }
+  }
+  .mx-placeholder {
+    .header-transparent {
+      background-color: transparent;
+    }
+  }
+}
+
+.region-content-header {
+
+}
+
+
+// Define main page containers
+.main-page-container {
+
+	@include layout-gutter-mixin();
+	padding-top: $spacing-large;
+	padding-bottom: $spacing-large;
+
+	&.mx-dataview {
+		padding: 0;
+		
+		> .mx-dataview-content {
+			@include layout-gutter-mixin();
+			padding-top: $spacing-large;
+			padding-bottom: $spacing-large;
+		}
+	}
+
+	// Scrollcontainer as a main page container
+	&.mx-scrollcontainer {
+    	padding: 0;
+
+		> div[class*=mx-scrollcontainer-] {
+			@include layout-scrollcontainer-gutter-mixin();
+		}
+	}
+
+  // Remove spacing at top of main content
+  &.remove-spacing-top-main-container {
+    padding-top: 0;
+
+    > .mx-dataview-content {
+      padding-top: 0;
+    }
+  }
+}
+
+/*
+==========================================================================
+* @Media
+==========================================================================
+*/
+
+// Overriding standard "col-" behavior
+@media (min-width: 1024px) {
+  > .row {
+    .mx-layoutgrid {
+      [class*="col"] {
+        padding: 0 $column-gutter-1024;
+      }
+    }
+  }
+}
+@media (min-width: 1440px) {
+  > .row {
+    .mx-layoutgrid {
+      [class*="col"] {
+        padding: 0 $column-gutter-1440;
+      }
+    }
+  }
+}
+@media (min-width: 1920px) {
+  > .row {
+    .mx-layoutgrid {
+      [class*="col"] {
+        padding: 0 $column-gutter-1920;
+      }
+    }
+  }
+}
+
+
+/*
+==========================================================================
+* Specific mendix atlas layout rules
+==========================================================================
+*/
+
+.layout-atlas {
+  // top section
+  .region-topbar {
+    background-color: $topbar-bg;
+    color: $navtopbar-color;
+
+    .mx-layoutgrid {
+      padding: 0;
+
+      .row {
+        margin: 0;
+
+        > div {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .topbar-content {
+    display: flex;
+    flex-direction: row;
+
+    .mx-navbar {
+      @extend %right-navigationbar;
+      @extend %topbar-navigationbar;
+      margin-left: auto;
+    }
+  }
+
+  .navbar-brand {
+    height: $topbar-minimalheight;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 16px 0 0;
+
+    .app-name {
+      font-size: $font-size-medium;
+      margin-left: 14px;
+    }
+  }
+
+  // sidebar
+  .region-sidebar {
+    background-color: $sidebar-bg;
+
+    .ds-navigationtree {
+      padding-top: $spacing-small;
+    }
+
+    .mx-scrollcontainer-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  // content section
+
+  .region-content-top {
+    position: relative;
+    z-index: 2;
+
+    .inverse-btn {
+      margin-right: 80px;
+      padding-left: 16px;
+      padding-right: 16px;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
+  .region-content-main,
+  .region-content-header {
+    background-color: $bg-color;
+  }
+
+  &.bg-secondary {
+    .region-content-main {
+      background-color: $bg-color-secondary;
+    }
+  }
+}
